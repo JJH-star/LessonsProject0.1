@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задания для класса {{ class_num }}</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer; /* Добавлен стиль указывающий на кликабельность элемента */
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+
+        p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Задания для класса {{ class_num }}</h1>
+
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li onclick="window.location='/classes/{{ class_num }}/{{ task.id }}'">{{ task.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Нет доступных заданий для этого класса.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

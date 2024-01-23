@@ -1,0 +1,27 @@
+/* src/static/styles.css */
+
+#legend {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.legend-color-box {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.noun { color: red; }
+.verb { color: green; }
+.adjective { color: yellow; }
+.adverb { color: blue; }
+.numeral { color: purple; }
+.preposition { color: orange; }
+.conjunction { color: brown; }
+.interjection { color: pink; }

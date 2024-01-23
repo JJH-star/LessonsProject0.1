@@ -1,0 +1,16 @@
+form_data = {
+        "filter_noun": True,
+        "filter_adj": True,
+        "filter_verb": True,
+        "filter_prtf": True,
+        "filter_prts": True,
+        "filter_grnd": True,
+        "filter_numr": True,
+        "filter_advb": True,
+        "filter_npro": True,
+        "filter_pred": True,
+        "filter_prep": True,
+        "filter_conj": True,
+        "filter_prcl": True,
+        "filter_intj": True,
+    }
