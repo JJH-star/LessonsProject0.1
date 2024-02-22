@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задания</title>
+    <title>Задания для класса {{ class_num }}</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,7 +49,7 @@
 
         .btn-back {
             position: absolute;
-            top: 45px;
+            top: 40px;
             left: 345px;
             background-color: #007bff;
             color: #fff;
@@ -65,18 +66,18 @@
     </style>
 </head>
 <body>
-    <a href="/classes/{{ request.path_params.class_num }}" class="btn-back">Назад</a> <!-- Кнопка "Назад" -->
+    <a href="/classes" class="btn-back">Назад</a> <!-- Кнопка "Назад" -->
     <div class="container">
-        <h1>Задания для класса {{ class_num }}</h1>
+        <h1>Темы для класса {{ class_num }}</h1>
 
-        {% if tasks %}
+        {% if topics %}
             <ul>
-                {% for task in tasks %}
-                    <li onclick="window.location='/classes/{{ request.path_params.class_num }}/{{ request.path_params.topic_id  }}/{{ task.id }}'">{{ task.title }}</li>
+                {% for topic in topics %}
+                    <li onclick="window.location='/classes/{{ class_num }}/{{ topic.id }}'">{{ topic.name }}</li>
                 {% endfor %}
             </ul>
         {% else %}
-            <p>Нет доступных заданий для этого класса и темы.</p>
+            <p>Нет доступных тем для этого класса.</p>
         {% endif %}
     </div>
 </body>

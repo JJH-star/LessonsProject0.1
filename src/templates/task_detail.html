@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание: {{ task.title }}</title>
 
-    <style>
+    <script type="text/javascript" src="/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=7Bp8MfuxZkK6Yp7qn5FZ7AKscBcw85NUOsi3NSVAT8T6GHWppQDPF7Es74vxIfYGjWPYOJSF9zZr0YsXnAQS7tYweWDvyhmFJ3vavKhLSpiizpOcvBWU-g3b5As_pmLcvhZ4Vz9qL5zZh7u18kecyN2o94tRIu93uZQ8AXtYMTuKuLw5_iNDJRVt4IXTN99Fn8VHaHSlecWDC0dCIf65naDR1Z4qJZqbdz_3XzacQy8qffGWtyohHbJSgSfAm2wiMXVNzcgWM-OlQXDfbAlKrA" charset="UTF-8"></script><style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
@@ -48,15 +48,63 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
+        .btn-back {
+            float: left;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-submit {
+            display: block;
+            margin: 20px auto;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="/classes/{{ request.path_params.class_num }}/{{ request.path_params.topic_id }}" class="btn-back">Назад</a>
         <h1>Задание: {{ task.title }}</h1>
         <p>{{ task.original_text.decode('utf-8') }}</p>
 
-        <label for="answer">Ваш ответ:</label>
-        <input type="text" id="answer" name="answer" placeholder="Введите ваш ответ" class="answer-input">
+        <form action="/classes/{{ request.path_params.class_num }}/{{ request.path_params.topic_id }}/{{ task.id }}" method="post">
+            <label for="answer">Ваш ответ:</label>
+            <input type="text" id="answer" name="answer" placeholder="Введите ваш ответ" class="answer-input">
+
+            {% if response_text %}
+                <p class="{% if is_correct %}correct{% else %}incorrect{% endif %}">{{ response_text }}</p>
+            {% endif %}
+
+            <button type="submit" class="btn-submit">Отправить</button>
+        </form>
     </div>
 </body>
 </html>

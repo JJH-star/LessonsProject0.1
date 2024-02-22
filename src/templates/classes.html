@@ -4,54 +4,105 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <title>Выберите класс</title>
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             text-align: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 60%;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
             padding: 20px;
+            background-color:rgba(255,255,255,.8);
+            border-radius:.25em;
+            box-shadow:0 0 .25em rgba(0,0,0,.25);
+            box-sizing:border-box;
+
         }
 
         h1 {
-            color: #333;
+            color: #222222;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 800;
+            font-size: 3em;
         }
 
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none; /* Убираем подчеркивание */
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        button{
+            border-radius: 0.4em;
+            width: 180px;
+            height: 60px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            background: transparent;
+            border: 1px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5em;
+            color: #222222;
+            font-weight: 800;
+        }
+
+        svg {
+            left: 0;
+            top: 0;
+            fill: none;
+            stroke: #fff;
+            stroke-dasharray: 150 480;
+            stroke-dashoffset: 150;
+            transition: 1s ease-in-out;
         }
 
         button:hover {
-            background-color: #45a049;
+            transition: 1s ease-in-out;
+            background: #4F95DA;
+        }
+
+        button:hover svg {
+            stroke-dashoffset: -480;
+        }
+
+        a {
+            display: block;
+            margin: 20px;
+        }
+
+        .lomon {
+            transform: rotate(270deg);
+            position: absolute;
+            left: -250px;
+            top: 400px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 8em;
+            font-weight: 800;
+            text-align: left;
+            color: #01579b;
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
+<div class="lomon">
+    LOMONOSOV
+</div>
     <div class="container">
         <h1>Выберите класс</h1>
 
         {% for class_num in range(5, 12) %}
-            <a href="/classes/{{ class_num }}" style="text-decoration: none;"><button>Класс {{ class_num }}</button></a>
+            <a href="/classes/{{ class_num }}" style="text-decoration: none;"><button>{{ class_num }} класс</button></a>
         {% endfor %}
     </div>
 </body>

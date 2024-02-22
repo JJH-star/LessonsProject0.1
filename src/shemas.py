@@ -5,3 +5,9 @@ class TaskCreate(BaseModel):
     title: str
     original_text: bytes
     answer: str
+    topic_id: int
+
+class TopicCreate(BaseModel):
+    class_num: int
+    name: str
+    description: bytes
